@@ -132,7 +132,7 @@ function showInvite() {
 
     // Redirect to party link after 2 seconds
     setTimeout(() => {
-        window.location.href = 'https://www.example.com/cedars-birthday'; // Change to real link
+        window.location.href = 'https://partiful.com/e/RRNUhE4sVss0RLJkJBAx'; // Change to real link
     }, 2000);
 }
 

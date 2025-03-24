@@ -1,27 +1,41 @@
+/* Base NES.css Styles */
+@import url('https://unpkg.com/nes.css@latest/css/nes.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    background-color: #f4f4f4;
+    font-family: 'Press Start 2P', cursive;
+    color: #212529;
+    margin: 0;
+    padding: 20px;
 }
 
+/* Game Container */
 #game-container {
     display: grid;
     grid-template-columns: repeat(10, 40px);
     gap: 2px;
-    border: 2px solid #000;
+    border: 4px solid #212529;
+    background-color: #fff;
+    margin-top: 20px;
 }
 
+/* Individual Cells */
 .cell {
     width: 40px;
     height: 40px;
-    border: 1px solid #ccc;
+    border: 1px solid #999;
 }
 
+/* Wall Styling */
 .wall {
-    background-color: #000;
+    background-color: #212529;
 }
 
+/* Player Styling */
 .player {
     background-image: url('assets/player.png');
     background-size: contain;
@@ -29,6 +43,7 @@ body {
     background-position: center;
 }
 
+/* Trophy Styling */
 .trophy {
     background-image: url('assets/trophy.png');
     background-size: contain;
@@ -36,29 +51,76 @@ body {
     background-position: center;
 }
 
+/* Controls */
 #controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
 }
 
+/* Directional Buttons */
 .control-btn {
     width: 60px;
     height: 60px;
     margin: 5px;
     font-size: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
+/* NES.css button style */
+.control-btn {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #fff;
+    color: #212529;
+    border: 4px solid #212529;
+    box-shadow: 4px 4px 0 #212529;
+    transition: all 0.1s ease;
+}
+
+.control-btn:active {
+    box-shadow: 2px 2px 0 #212529;
+    transform: translate(2px, 2px);
+}
+
+/* Start Button */
 #start-btn {
-    margin-top: 20px;
+    font-family: 'Press Start 2P', cursive;
     padding: 15px 30px;
     font-size: 1.5rem;
-    background-color: green;
     color: #fff;
-    border: none;
-    border-radius: 8px;
+    background-color: #ff3366;
+    border: 4px solid #212529;
+    box-shadow: 4px 4px 0 #212529;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.1s ease;
 }
 
 #start-btn:hover {
-    background-color: #cc0000;
+    background-color: #ff0044;
 }
+
+#start-btn:active {
+    box-shadow: 2px 2px 0 #212529;
+    transform: translate(2px, 2px);
+}
+
+/* Title */
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ff3366;
+    text-shadow: 3px 3px #212529;
+}
+
+/* Instructions */
+.instructions {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center;
+}
+
