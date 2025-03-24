@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help Cedar the Dinosaur!</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>🦖 Help Cedar the Dinosaur! 🦖</h1>
+    
+    <p class="instructions">
+        Solve the maze to help Cedar the Dinosaur get his birthday PBR! 🍺
+    </p>
+
+    <div id="game-container"></div>
+
+    <button id="start-btn" onclick="startGame()">Start Game</button>
+
+    <div id="controls">
+        <div>
+            <button class="control-btn" onclick="movePlayer(0, -1)">⬆️</button>
+        </div>
+        <div>
+            <button class="control-btn" onclick="movePlayer(-1, 0)">⬅️</button>
+            <button class="control-btn" onclick="movePlayer(1, 0)">➡️</button>
+        </div>
+        <div>
+            <button class="control-btn" onclick="movePlayer(0, 1)">⬇️</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
