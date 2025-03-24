@@ -35,4 +35,167 @@ h1 {
 #game-container {
     display: grid;
     grid-template-columns: repeat(10, 40px);
-    gap: 2
+    gap: 2px;
+    border: 4px solid #212529;
+    background-color: #fff;
+    margin-top: 20px;
+}
+
+/* Individual Cells */
+.cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #999;
+}
+
+/* Wall Styling */
+.wall {
+    background-color: #212529;
+}
+
+/* Player Styling */
+.player {
+    background-image: url('assets/player.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Trophy Styling */
+.trophy {
+    background-image: url('assets/trophy.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Controls Container */
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Directional Buttons */
+.control-btn {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    font-size: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* NES.css-style button */
+.control-btn {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #fff;
+    color: #212529;
+    border: 4px solid #212529;
+    box-shadow: 4px 4px 0 #212529;
+    transition: all 0.1s ease;
+}
+
+.control-btn:active {
+    box-shadow: 2px 2px 0 #212529;
+    transform: translate(2px, 2px);
+}
+
+/* Start Button */
+#start-btn {
+    font-family: 'Press Start 2P', cursive;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #ff3366;
+    border: 4px solid #212529;
+    box-shadow: 4px 4px 0 #212529;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    margin-top: 20px;
+}
+
+#start-btn:hover {
+    background-color: #ff0044;
+}
+
+#start-btn:active {
+    box-shadow: 2px 2px 0 #212529;
+    transform: translate(2px, 2px);
+}
+
+/* ------ MOBILE RESPONSIVENESS ------ */
+@media (max-width: 768px) {
+    /* Make the game container smaller on mobile */
+    #game-container {
+        grid-template-columns: repeat(10, 32px);
+    }
+
+    .cell {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Make the joystick buttons larger on mobile */
+    .control-btn {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        margin: 8px;
+    }
+
+    /* Adjust start button size on mobile */
+    #start-btn {
+        font-size: 1.2rem;
+        padding: 20px 40px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .instructions {
+        font-size: 12px;
+    }
+}
+
+/* ------ LARGE SCREEN RESPONSIVENESS ------ */
+@media (min-width: 1200px) {
+    #game-container {
+        grid-template-columns: repeat(10, 50px);
+    }
+
+    .cell {
+        width: 50px;
+        height: 50px;
+    }
+
+    .control-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+    }
+
+    #start-btn {
+        font-size: 1.5rem;
+        padding: 18px 36px;
+    }
+}
+
+
+/* Prevent double-tap zoom */
+body {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.control-btn {
+    touch-action: manipulation; /* Disable double-tap zoom specifically on buttons */
+    -webkit-user-select: none;
+    user-select: none;
+}
+
