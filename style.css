@@ -1,7 +1,8 @@
-/* Base NES.css Styles */
+/* NES.css Imports */
 @import url('https://unpkg.com/nes.css@latest/css/nes.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/* General Styles */
 body {
     display: flex;
     flex-direction: column;
@@ -11,6 +12,23 @@ body {
     color: #212529;
     margin: 0;
     padding: 20px;
+}
+
+/* Title */
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ff3366;
+    text-shadow: 3px 3px #212529;
+    text-align: center;
+}
+
+/* Instructions */
+.instructions {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center;
 }
 
 /* Game Container */
@@ -51,7 +69,7 @@ body {
     background-position: center;
 }
 
-/* Controls */
+/* Controls Container */
 #controls {
     display: flex;
     flex-direction: column;
@@ -71,7 +89,7 @@ body {
     cursor: pointer;
 }
 
-/* NES.css button style */
+/* NES.css-style button */
 .control-btn {
     font-family: 'Press Start 2P', cursive;
     background-color: #fff;
@@ -97,6 +115,7 @@ body {
     box-shadow: 4px 4px 0 #212529;
     cursor: pointer;
     transition: all 0.1s ease;
+    margin-top: 20px;
 }
 
 #start-btn:hover {
@@ -108,19 +127,62 @@ body {
     transform: translate(2px, 2px);
 }
 
-/* Title */
-h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #ff3366;
-    text-shadow: 3px 3px #212529;
+/* ------ MOBILE RESPONSIVENESS ------ */
+@media (max-width: 768px) {
+    /* Make the game container smaller on mobile */
+    #game-container {
+        grid-template-columns: repeat(10, 32px);
+    }
+
+    .cell {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Make the joystick buttons larger on mobile */
+    .control-btn {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        margin: 8px;
+    }
+
+    /* Adjust start button size on mobile */
+    #start-btn {
+        font-size: 1.2rem;
+        padding: 20px 40px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .instructions {
+        font-size: 12px;
+    }
 }
 
-/* Instructions */
-.instructions {
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: #555;
-    text-align: center;
+/* ------ LARGE SCREEN RESPONSIVENESS ------ */
+@media (min-width: 1200px) {
+    #game-container {
+        grid-template-columns: repeat(10, 50px);
+    }
+
+    .cell {
+        width: 50px;
+        height: 50px;
+    }
+
+    .control-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+    }
+
+    #start-btn {
+        font-size: 1.5rem;
+        padding: 18px 36px;
+    }
 }
+
 
