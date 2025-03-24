@@ -1,11 +1,3 @@
-
-
-document.querySelectorAll('.control-btn').forEach(btn => {
-    btn.addEventListener('touchstart', (e) => {
-        e.preventDefault(); // Stop default zoom behavior
-    });
-});
-
 // Global state
 let backgroundMusic;
 let gameStarted = false;
