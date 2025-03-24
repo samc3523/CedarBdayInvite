@@ -1,3 +1,11 @@
+
+
+document.querySelectorAll('.control-btn').forEach(btn => {
+    btn.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // Stop default zoom behavior
+    });
+});
+
 // Global state
 let backgroundMusic;
 let gameStarted = false;
@@ -9,7 +17,7 @@ const maze = [
     [' ', 'X', ' ', ' ', ' ', ' ', ' ', ' ', 'X', ' '],
     [' ', 'X', ' ', 'X', 'X', 'X', 'X', ' ', 'X', ' '],
     [' ', 'X', ' ', ' ', ' ', ' ', ' ', ' ', 'X', ' '],
-    [' ', ' ', ' ', 'X', 'X', 'X', ' ', 'X', ' ', 'x'],
+    [' ', ' ', ' ', 'X', 'X', 'X', ' ', 'X', ' ', 'X'],
     ['X', 'X', ' ', ' ', ' ', 'X', ' ', ' ', ' ', ' '],
     [' ', ' ', ' ', 'X', ' ', 'X', 'X', 'X', 'X', ' '],
     [' ', 'X', ' ', 'X', ' ', ' ', ' ', ' ', ' ', ' '],
@@ -19,9 +27,9 @@ const maze = [
 const gameContainer = document.getElementById('game-container');
 let playerPos = { x: 0, y: 0 };
 
-// Start game after button click
+// Function to start the game
 function startGame() {
-    if (gameStarted) return; // Prevent multiple starts
+    if (gameStarted) return;
     gameStarted = true;
 
     // Hide the start button
@@ -40,7 +48,7 @@ function startGame() {
     drawMaze();
 }
 
-// Draw the maze and player position
+// Function to draw the maze and player
 function drawMaze() {
     gameContainer.innerHTML = '';
 
@@ -58,29 +66,29 @@ function drawMaze() {
     });
 }
 
-// Handle player movement
+// Function to handle player movement
 function movePlayer(dx, dy) {
     const newX = playerPos.x + dx;
     const newY = playerPos.y + dy;
 
-    // Prevent out-of-bounds movement and walls
+    // Check for out-of-bounds movement or walls
     if (newX < 0 || newX >= maze[0].length || newY < 0 || newY >= maze.length) return;
     if (maze[newY][newX] === 'X') return;
 
     playerPos = { x: newX, y: newY };
     drawMaze();
 
-    // Check if player reaches the trophy
+    // Check for win condition
     if (maze[newY][newX] === 'T') {
         triggerExplosion();
     }
 }
 
+// Function to trigger explosion animation and sound
 function triggerExplosion() {
-    // 🔥 Stop background music when explosion starts
     if (backgroundMusic) {
         backgroundMusic.pause();
-        backgroundMusic.currentTime = 0; // Reset to start if game restarts
+        backgroundMusic.currentTime = 0; // Reset background music
     }
 
     // Create explosion overlay
@@ -103,14 +111,14 @@ function triggerExplosion() {
     const explosionSound = new Audio('assets/explosion.mp3');
     explosionSound.play();
 
-    // Remove explosion and show invite message after 1 second
+    // Remove explosion and show invite after 1 second
     setTimeout(() => {
         document.body.removeChild(explosion);
         showInvite();
     }, 1000);
 }
 
-// Show invite message after explosion
+// Function to show invite after explosion
 function showInvite() {
     const inviteMessage = document.createElement('div');
     inviteMessage.innerText = "🎉 YOU'RE INVITED TO CEDAR'S BIRTHDAY! 🎉";
@@ -132,19 +140,27 @@ function showInvite() {
 
     // Redirect to party link after 2 seconds
     setTimeout(() => {
-        window.location.href = 'https://partiful.com/e/RRNUhE4sVss0RLJkJBAx'; // Change to real link
+        window.location.href = 'https://partiful.com/e/RRNUhE4sVss0RLJkJBAx';
     }, 2000);
 }
 
-// Reset game state (if needed)
+// Function to reset the game
 function resetGame() {
     playerPos = { x: 0, y: 0 };
     drawMaze();
 }
 
+// Function to show volume alert on page load
+function showVolumeAlert() {
+    setTimeout(() => {
+        alert('🔊 Turn on your volume for the best experience!');
+    }, 500); // Small delay for better user experience
+}
+
 // Start game after user clicks the button
 window.onload = () => {
     document.getElementById('start-btn').addEventListener('click', startGame);
+    showVolumeAlert(); // Alert when page loads
 };
 
 
